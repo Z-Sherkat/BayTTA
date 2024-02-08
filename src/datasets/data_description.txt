@@ -1,0 +1,51 @@
+1)Medical image datasets:
+
+-Skin cancer dataset: is the first group of dataset sourced from
+Kaggle https://www.kaggle.com/datasets/fanconic/skin-cancer-malignant-vs-
+benign, which encompasses images belonging to two distinct
+classes: Benign (class 0) and Malignant (class 1). This dataset
+comprises 2637 training images, with 1440 falling under the
+Benign category and 1197 under the Malignant category. Ad-
+ditionally, there are 660 test images, consisting of 360 Benign
+and 300 Malignant examples. Each image in the dataset is of
+dimensions 224 × 244 pixels.
+
+
+-Breast cancer dataset is the second group of datasets sup-
+ported by Kaggle https://www.kaggle.com/datasets/vuppalaadithyasairam/ultrasound-
+breast-images-for-breast-cancer, which has 8116 training images, with 4074
+Benign and 4042 Malignant samples. Also, we have access to
+900 test samples, 500 in the Benign category and 400 in the
+Malignant category. Each image in the dataset is of dimensions
+224 × 244 pixels.
+
+
+-chest X-ray dataset is a chest X-ray image dataset extracted
+from a publicly available database 3. In our experiments, 5216
+images for the training dataset are available, with 1341 for the
+normal category and 3875 for the Pneumonia category. The
+dataset includes 624 images for the testing phase, with 234 for
+the normal category and 390 for the Pneumonia category. Each
+image in the dataset is of dimensions 224 × 244 pixels.
+
+
+2)Gene editing datasets:
+
+-CRISPOR database: organized and maintained by Haeussler
+et al. Haeussler et al. (2016) aggregates widely popular pub-
+lic datasets for quantifying on-target guide efficiency and detect
+off-target cleavage sites. The dataset consisted of 18211 train-
+ing images and 7806 testing images of dimensions 8×23 pixels.
+
+
+-GUIDE-seq: is one of the first off-target data repositories,
+based on the results of the GUIDE-seq technique developed by
+Tsai et al. Tsai et al. (2015). It can serve as an accurate frame-
+work for genome-wide identification of off-target effects. The
+sgRNAs used in GUIDE-seq target the following sites: VEGFA
+site 1, VEGFA site 2, VEGFA site 3, FANCF, HEK293 site
+2, HEK293 site 3, and HEK293 site 4, in which 28 off-targets
+with a minimum modification frequency of 0.1 were identified
+(among 403 potential off-targets). Each image in the dataset is
+of dimensions 8 × 23 pixels, and the dataset includes 309 train-
+ing images and 133 testing images.
