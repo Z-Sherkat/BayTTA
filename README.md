@@ -57,7 +57,7 @@ python ./predict_BayTTA.py --aug 'flip'
 |   |-- __init__.py
 |   |-- checkpoint/ (Checkpoints for trained models)
 |   |-- constants/ (Script to specified constant values for training our models)
-|   |-- dataset/ (Folder for description of datasets and the URL link for the datasets
+|   |-- dataset/ (Folder for description of datasets and the URL link for the datasets)
 |   |   |-- dataset_description.txt
 |   |-- models/
 |    |   |-- predict_BayTTA.py (Used trained model for making the prediction based on BayTTA method) 
