@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "TTA-BMA"
+REPO_NAME = "BayTTA"
 AUTHOR_USER_NAME = "Z-Sherkat"
 SRC_REPO = "TTA-BMA"
 AUTHOR_EMAIL = "sherkat.elham@gmail.com"
