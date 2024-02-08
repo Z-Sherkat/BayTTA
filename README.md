@@ -13,7 +13,7 @@ by Zeinab Sherkatghanad, Moloud Abdar, Mohammadreza Bakhtyari, Vladimir Makarenk
 
 BayTTA (Bayesian based TTA) is a method that optimizes test-time augmentation using Bayesian model averaging. This technique generates a model list associated with different variations of the input data created through TTA. BMA then combines model predictions weighted by their respective posterior probabilities. Such an approach allows one to consider model uncertainty and thus enhance the predictive performance of machine learning models. 
 
-![TTA-BMA-Med.pdf](https://github.com/Z-Sherkat/BayTTA/files/14214336/TTA-BMA-Med.pdf)
+[TTA-BMA-Med.pdf](https://github.com/Z-Sherkat/BayTTA/files/14214336/TTA-BMA-Med.pdf)
 
 
 
