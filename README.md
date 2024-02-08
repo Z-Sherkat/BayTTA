@@ -95,10 +95,11 @@ Comparison of the baseline models accuracy (%) and STD performance with TTA and 
 ## Gene editing datasets
 Accuracy results of our proposed method on the CRISPOR and GUIDE-seq datasets.
 
-|Models 	|CRISPOR 	|GUIDE-seq	|
-|CNN		| 99.82 ± 0.02	| 90.72 ± 0.36  |
-|CNN+TTA	| 99.86 ± 0.008	| 91.35 ± 0.35  |
-|CNN+BayTTA 	|99.87± 0.008	| 91.73 ± 0.16  |
+|Models 	  |CRISPOR 	      |GUIDE-seq	|
+| ----------|:-------------:|:-------------:|
+|CNN		    | 99.82 ± 0.02	| 90.72 ± 0.36  |
+|CNN+TTA	  | 99.86 ± 0.008	| 91.35 ± 0.35  |
+|CNN+BayTTA |99.87± 0.008	  | 91.73 ± 0.16  |
 
 
 
