@@ -1,0 +1,15 @@
+include *.txt
+include *.h5
+recursive-include ./src/*
+
+include src/datasets/train.csv
+include src/datasets/test.csv
+include src/checkpoints/*.h5
+include src/VERSION
+include src/config.yml
+
+include ./requirements/requirements.txt
+exclude *.log
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

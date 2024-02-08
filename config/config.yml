@@ -1,0 +1,11 @@
+# Package Overview
+package_name: BayTTA_model
+
+# Data Files
+training_data_file: train.csv
+test_data_file: test.csv
+
+
+pipeline_name: BayTTA_model
+pipeline_save_file: BayTTA_model_output_v
+

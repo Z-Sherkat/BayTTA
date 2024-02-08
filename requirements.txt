@@ -1,0 +1,19 @@
+numpy
+pandas
+tensorflow
+keras
+PIL
+tqdm
+itertools
+scikit-learn
+pyYAML
+matplotlib
+numpy
+pandas
+tensorflow
+keras
+statsmodels
+mlflow==2.2.2
+Flask
+Flask-Cors
+-e .
