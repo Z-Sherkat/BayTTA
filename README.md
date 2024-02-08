@@ -101,7 +101,7 @@ Accuracy results of our proposed method on the CRISPOR and GUIDE-seq datasets.
 |CNN+TTA	  | 99.86 ± 0.008	| 91.35 ± 0.35  |
 |CNN+BayTTA |99.87± 0.008	  | 91.73 ± 0.16  |
 
-
+# Citation
 
 
 
