@@ -8,7 +8,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "BayTTA"
 AUTHOR_USER_NAME = "Z-Sherkat"
-SRC_REPO = "TTA-BMA"
+SRC_REPO = "BayTTA"
 AUTHOR_EMAIL = "sherkat.elham@gmail.com"
 
 
