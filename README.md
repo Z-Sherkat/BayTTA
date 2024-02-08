@@ -29,7 +29,7 @@ python setup.py
 
 
 ```bash
-https://github.com/......
+https://github.com/Z-Sherkat/BayTTA
 ```
 
 
@@ -38,7 +38,7 @@ Compute Canada cluster with NVIDIA Tesla P100 and NVIDIA v100 GPUs (the Cedar cl
 ## Train 
 
 ```
-python train_models.py --base_models 'VGG'
+python train_models.py --base_models 'VGG'\ --learning_rates 0.0005\  --Batch_size 256
 ```
 
 ## Test 
