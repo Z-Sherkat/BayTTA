@@ -72,37 +72,39 @@ def Optimize(opts,base_model,BS,x_train,y_train,x_test,y_test,epoch=400,verbose=
         plt.close()
     return temp_result    
 
-def train_model(x_train, y_train, x_test, y_test):
+img_size=224
+def train_model(x_train,y_train,x_test,y_test):
+                    
                     
     if args.base_models == 'VGG':            
         base_model = VGG16(weights="imagenet", include_top=False,input_shape=(img_size,img_size,3))
-        opts=Adam(learning_rate=Learning_Rate_VGG)
-        BS = BS_VGG
+        opts=Adam(learning_rate=args.learning_rates)
+        BS = args.Batch_size
         Optimize(opts,base_model,BS,x_train,y_train,x_test,y_test,verbose=0)
 
     elif args.base_models == 'MobileNetV2':            
         base_model = MobileNetV2(weights="imagenet", include_top=False,input_shape=(img_size,img_size,3))
-        opts=Adam(learning_rate=Learning_Rate_MobileNetV2)
-        BS = BS_MobileNetV2
+        opts=Adam(learning_rate=args.learning_rates)
+        BS = args.Batch_size
         Optimize(opts,base_model,BS,x_train,y_train,x_test,y_test)
                     
     elif args.base_models == 'DenseNet201':            
         base_model = DenseNet201(weights="imagenet", include_top=False,input_shape=(img_size,img_size,3))
-        opts = Adamax(learning_rate=Learning_Rate_DenseNet201)
-        BS = BS_DenseNet201
+        opts = Adamax(learning_rate=args.learning_rates)
+        BS = args.Batch_size
         Optimize(opts,base_model,BS,x_train,y_train,x_test,y_test)
 
     elif args.base_models == 'ResNet152V2':            
         base_model = ResNet152V2(weights="imagenet", include_top=False,input_shape=(img_size,img_size,3))
-        opts = Adamax(learning_rate=Learning_Rate_ResNet152V2)
-        BS = BS_ResNet152V2
+        opts = Adamax(learning_rate=args.learning_rates)
+        BS = args.Batch_size
         Optimize(opts,base_model,BS,x_train,y_train,x_test,y_test)
 
 
     elif args.base_models == 'InceptionResNetV2':            
         base_model = InceptionResNetV2(weights="imagenet", include_top=False,input_shape=(img_size,img_size,3))
-        opts = Adamax(learning_rate=Learning_InceptionResNetV2)
-        BS = BS_InceptionResNetV2
+        opts = Adamax(learning_rate=args.learning_rates)
+        BS = args.Batch_size
         Optimize(opts,base_model,BS,x_train,y_train,x_test,y_test)
                       
         
@@ -110,7 +112,9 @@ def train_model(x_train, y_train, x_test, y_test):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument("--base_models", help="Type pf data augmentation", type=str, default='VGG')
+    parser.add_argument("--base_models", help="Type pf basemodel", type=str, default='VGG')
+    parser.add_argument("--learning_rates", help="learning_rate", type=float, default=0.0005)
+    parser.add_argument("--Batch_size", help="batch_size", type=int, default=256)
 
     args = parser.parse_args()
     
