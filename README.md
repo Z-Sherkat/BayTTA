@@ -45,11 +45,11 @@ Compute Canada cluster with NVIDIA Tesla P100 and NVIDIA v100 GPUs (the Cedar cl
 |   |-- checkpoint/ (Checkpoints for trained model)
 |   |-- constants/ (Script to specified constant values for training our models)
 |   |-- dataset/ (Folder for description of datasets and the URL link for the datasets
-|   |   +-- dataset_description.txt
+|   |   |-- dataset_description.txt
 |   |-- models/
-|    |   +-- Bay-TTA.py (Used trained model for making the prediction based on BayTTA method) 
-|    |   +-- BMA.py (Class definition for BMA)
-|    |   +-- train_models.py (Train models)
+|    |   |-- Bay-TTA.py (Used trained model for making the prediction based on BayTTA method) 
+|    |   |-- BMA.py (Class definition for BMA)
+|    |   |-- train_models.py (Train models)
 |   |-- utils/ (Utility functions to process the data and metrics)
 
 ```
