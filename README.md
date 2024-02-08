@@ -13,8 +13,8 @@ by Zeinab Sherkatghanad, Moloud Abdar, Mohammadreza Bakhtyari, Vladimir Makarenk
 
 BayTTA (Bayesian based TTA) is a method that optimizes test-time augmentation using Bayesian model averaging. This technique generates a model list associated with different variations of the input data created through TTA. BMA then combines model predictions weighted by their respective posterior probabilities. Such an approach allows one to consider model uncertainty and thus enhance the predictive performance of machine learning models. 
 
-<p align="center">
-<img src="https://github.com/Z-Sherkat/BayTTA/blob/main/plots/TTA-BMA-Med.pdf" width=350>
+![TTA-BMA-Med.pdf](https://github.com/Z-Sherkat/BayTTA/files/14214336/TTA-BMA-Med.pdf)
+
 
 
 In this repo, we implement BayTTA for image classification with several different architectures on three public medical image datasets comprising skin cancer, breast cancer, and chest X-ray images as well as two popular gene editing datasets, CRISPOR and GUIDE-seq.
