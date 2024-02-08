@@ -55,7 +55,7 @@ python ./predict_BayTTA.py --aug 'flip'
 |-- setup.py (Make this project pip installation with 'pip install -e')
 |-- src/ 
 |   |-- __init__.py
-|   |-- checkpoint/ (Checkpoints for trained model)
+|   |-- checkpoint/ (Checkpoints for trained models)
 |   |-- constants/ (Script to specified constant values for training our models)
 |   |-- dataset/ (Folder for description of datasets and the URL link for the datasets
 |   |   |-- dataset_description.txt
