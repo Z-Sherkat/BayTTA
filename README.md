@@ -33,6 +33,17 @@ https://github.com/......
 
 See requirements.txt file for requirements that came from our setup. All experiments were run on 
 Compute Canada cluster with NVIDIA Tesla P100 and NVIDIA v100 GPUs (the Cedar cluster).
+## Train 
+
+```
+python train_models.py --base_models 'VGG'
+```
+
+## Test 
+
+```
+python ./predict_BayTTA.py --aug 'flip'
+```
 
 # File Structure
 
@@ -47,7 +58,7 @@ Compute Canada cluster with NVIDIA Tesla P100 and NVIDIA v100 GPUs (the Cedar cl
 |   |-- dataset/ (Folder for description of datasets and the URL link for the datasets
 |   |   |-- dataset_description.txt
 |   |-- models/
-|    |   |-- Bay-TTA.py (Used trained model for making the prediction based on BayTTA method) 
+|    |   |-- predict_BayTTA.py (Used trained model for making the prediction based on BayTTA method) 
 |    |   |-- BMA.py (Class definition for BMA)
 |    |   |-- train_models.py (Train models)
 |   |-- utils/ (Utility functions to process the data and metrics)
@@ -100,6 +111,7 @@ Accuracy results of our proposed method on the CRISPOR and GUIDE-seq datasets.
 |CNN		    | 99.82 ± 0.02	| 90.72 ± 0.36  |
 |CNN+TTA	  | 99.86 ± 0.008	| 91.35 ± 0.35  |
 |CNN+BayTTA |99.87± 0.008	  | 91.73 ± 0.16  |
+
 
 # Citation
 
