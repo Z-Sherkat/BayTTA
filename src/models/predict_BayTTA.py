@@ -15,6 +15,7 @@ from tensorflow.keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator
 import statsmodels.api as sm
 import BMA
+from statsmodels.tools import add_constant
 #import load_dataset, metrics
 
 import sys 
@@ -37,16 +38,21 @@ def test_time_aug(model, datagen, x, y, tta_steps=6):
     """Metrics Test Time Aug."""
     predictions = []
     preds_tot = []
+    acc_history = []
+
+    y_arg = np.argmax(y, axis=1)
     prediction = model.predict(x)
     predictions.append(prediction)
     arg = np.argmax(prediction, axis=1)
     preds_tot.append(arg)
+    acc_history.append(accuracy_score(arg, y_arg))
     bs = 64
     for i in range(tta_steps):
         prediction = model.predict(datagen.flow(x, batch_size=bs, shuffle=False), steps = len(x)/bs)
         arg = np.argmax(prediction, axis=1)
         preds_tot.append(arg)
         predictions.append(prediction)
+        acc_history.append(accuracy_score(arg, y_arg))
 
     final_pred = np.mean(predictions, axis=0)
     #print('final_pred', final_pred)
@@ -54,20 +60,20 @@ def test_time_aug(model, datagen, x, y, tta_steps=6):
     metrics_TTA = metrics.evaluation(final_pred, y)
     UQ_TTA = np.std(metrics_TTA[0])
 
-    return metrics_TTA, preds_tot, labels, UQ_TTA
+    return metrics_TTA, preds_tot, labels, UQ_TTA, acc_history
 
-def BMA_evaluation(metrics_TTA, preds_tot, labels):   
+def BMA_evaluation(acc_history, , preds_tot, labels):   
     """Metrics BMA."""                
     pred_tot_df = pd.DataFrame(np.array(preds_tot).T,columns=['aug1', 'aug2', 'aug3', 'aug4', 'aug5', 'aug6', 'aug7'])
     labels_df = pd.DataFrame(np.array(labels).T, columns=['labels'])
 
-    result = BMA.BMA(labels_df, pred_tot_df, RegType = 'Logit', Verbose=False).fit()
-    pred_BMA = result.predict(pred_tot_df)
+    result = BMA.BMA(labels_df, add_constant(pred_tot_df), RegType = 'Logit', Verbose=False).fit()
+    pred_BMA = result.predict(add_constant(pred_tot_df))
     pred_BMA = pred_BMA > 0.5
     metrics_BMA = metrics.get_metrics(pred_BMA, labels)                
     print('metrics_TTA', metrics_TTA)    
     acc_BMA = metrics_BMA[0]
-    acc_TTA = metrics_TTA
+    acc_TTA = acc_history
 
     prob = result.uncertainty()
     coff1 = prob.loc[prob['Variable Name'] == 'aug1', 'Probability'].iloc[0]
