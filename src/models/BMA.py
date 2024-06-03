@@ -5,6 +5,8 @@ from statsmodels.tools import add_constant
 from itertools import combinations
 from mpmath import mp
 mp.dps = 50
+
+#Motivated by https://www.kaggle.com/code/billbasener/bayesian-model-averaging-logistic-regression
 class BMA:
     
     def __init__(self, y, X, **kwargs):
@@ -51,16 +53,11 @@ class BMA:
             if self.Verbose == True:
                 print("Computing BMA for models of size: ", num_elements)
             
-            # Make a list of all index sets of models of this size.
+
             Models_next = list(combinations(list(range(self.nCols)), num_elements)) 
             print('Models_next', Models_next)
             
-             
-            # window - compute the candidate models to use for the next iteration
-            # Models_previous: the set of models from the previous iteration that satisfy (likelihhod > max_likelihhod/20)
-            # Models_next:     the set of candidate models for the next iteration
-            # Models_current:  the set of models from Models_next that can be consturcted by adding one new variable
-            #                    to a model from Models_previous
+
             if num_elements == 1:
                 Models_current = Models_next
                 Models_previous = []
@@ -99,11 +96,10 @@ class BMA:
                         print("Model Variables:",model_index_set,"likelihood=",model_likelihood)
                     self.likelihoods_all[str(model_index_set)] = model_likelihood
                     
-                    # Add this likelihood to the running tally of likelihoods.
+                    # Add this likelihood to the likelihoods.
                     likelighood_sum = mp.fadd(likelighood_sum, model_likelihood)
 
-                    # Add this likelihood (times the priors) to the running tally
-                    # of likelihoods for each variable in the model.
+                    # Add this likelihood (times the priors) 
                     for idx, i in zip(model_index_set, range(num_elements)):
                         self.likelihoods[idx] = mp.fadd(self.likelihoods[idx], model_likelihood, prec=1000)
                         self.coefficients_mp[idx] = mp.fadd(self.coefficients_mp[idx], model_regr.params[i]*model_likelihood, prec=1000)
@@ -114,23 +110,21 @@ class BMA:
                         print("Model Variables:", model_index_set, "rejected", "likelihood=", model_likelihood, "max_likelihood=", max_likelihood)
                         #Models_previous.append(model_index_set) # add this model to the list of good models
 
-                    # Add this likelihood (times the priors) to the running tally
-                    # of likelihoods for each variable in the model.
+                   
                     for idx, i in zip(model_index_set, range(num_elements)):
                         self.likelihoods[idx] = mp.fadd(self.likelihoods[idx], model_likelihood, prec=1000)
                         #self.coefficients_mp[idx] = mp.fadd(self.coefficients_mp[idx], model_regr.params[i]*model_likelihood, prec=1000)
                     Models_previous.append(model_index_set) # add this model to the list of good models
                     #max_likelihood = model_likelihood # get the new max likelihood if it is this model    
 
-        # Divide by the denominator in Bayes theorem to normalize the probabilities 
-        # sum to one.
+        
         print('likelighood_sum:', likelighood_sum)
         self.likelighood_sum = likelighood_sum
         for idx in range(self.nCols):
             self.probabilities[idx] = mp.fdiv(self.likelihoods[idx],likelighood_sum, prec=1000)
             self.coefficients[idx] = mp.fdiv(self.coefficients_mp[idx],likelighood_sum, prec=1000)
         
-        # Return the new BMA object as an output.
+        
         return self
     
     def predict(self, data):
