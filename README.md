@@ -5,7 +5,7 @@ This repository contains a TensorFlow implementation of BayTTA (Bayesian based T
 [Medical image classification with optimized test-time augmentation using
 Bayesian model averaging]
 
-by Zeinab Sherkatghanad, Moloud Abdar, Mohammadreza Bakhtyari, Vladimir Makarenkov
+by Zeinab Sherkatghanad, Moloud Abdar, Mohammadreza Bakhtyari, Paweł Pławiak, Vladimir Makarenkov
 
 
 
